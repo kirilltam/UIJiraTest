@@ -1,6 +1,6 @@
 package BaseSteps;
 
-import Hooks.Configuration;
+import Hooks.Application;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 
@@ -12,22 +12,21 @@ public class TaskPageSteps {
 
     @Step("Создание баги и перевод в статус ГОТОВО")
     public static void taskPageMethod() {
-
         createBtn.shouldBe(Condition.visible).pressEnter();
         taskType.shouldBe(Condition.visible).click();
         taskType.sendKeys("Ошибка");
         taskType.pressEnter();
-        taskName.setValue(Configuration.getConfigurationValue("taskName"));
+        taskName.setValue(Application.getConfigurationValue("taskName"));
         switchTo().frame("mce_0_ifr");
-        description.sendKeys(Configuration.getConfigurationValue("description"));
+        description.sendKeys(Application.getConfigurationValue("description"));
         switchTo().defaultContent();
         priorityVer.shouldBe(Condition.visible).click();
-        priorityVer.sendKeys(Configuration.getConfigurationValue("priorityVer"));
+        priorityVer.sendKeys(Application.getConfigurationValue("priorityVer"));
         priorityVer.pressEnter();
         assignMe.click();
         createTaskBtn.shouldBe(Condition.visible).click();
         closePopUpBtn.shouldBe(Condition.visible).click();
-        searchTask.sendKeys(Configuration.getConfigurationValue("searchTask"));
+        searchTask.sendKeys(Application.getConfigurationValue("searchTask"));
         searchTask.shouldBe(Condition.visible).click();
         foundTask.shouldBe(Condition.visible).click();
         processBtn.shouldBe(Condition.visible).click();
@@ -39,13 +38,6 @@ public class TaskPageSteps {
         }
         String statuss = status.getText();
         assertEquals("ГОТОВО", statuss,"not equals");
-
-
-
-
-
-
-
 
     }
 }

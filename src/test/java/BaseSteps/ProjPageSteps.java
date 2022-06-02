@@ -1,7 +1,6 @@
 package BaseSteps;
 
 import io.qameta.allure.Step;
-
 import static BaseElements.ProjectPageElements.statusVal;
 import static BaseElements.ProjectPageElements.versionCheck;
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -4,13 +4,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class Configuration {
-        public static final String CONFIGURATION_FILE = "/conf.properties";
+public class Application {
+        public static final String CONFIGURATION_FILE = "/application.properties";
         public static final Properties properties;
 
-        static {
+
+    static {
             properties = new Properties();
-            try (InputStream inputStream = Configuration.class.getResourceAsStream(CONFIGURATION_FILE)) {
+            try (InputStream inputStream = Application.class.getResourceAsStream(CONFIGURATION_FILE)) {
                 properties.load(inputStream);
 
             } catch (IOException e) {

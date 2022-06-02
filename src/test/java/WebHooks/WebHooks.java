@@ -1,4 +1,5 @@
 package WebHooks;
+import Hooks.Application;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
@@ -9,11 +10,10 @@ import org.junit.Before;
 public class WebHooks {
     
      public static void openWeb(){
-        Selenide.open(Hooks.Configuration.getConfigurationValue("url"));
+        Selenide.open(Application.getConfigurationValue("url"));
 
      }
-
-    @Before
+     @Before
     public  void SetUp() {
          openWeb();
         Configuration.startMaximized = true;
@@ -21,10 +21,9 @@ public class WebHooks {
     }
 
     @After
+
     public void SetDown() {
         WebDriverRunner.closeWebDriver();
+
     }
-
-
-
 }

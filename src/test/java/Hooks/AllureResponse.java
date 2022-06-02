@@ -6,11 +6,8 @@ import org.junit.jupiter.api.BeforeAll;
 
 public class AllureResponse {
 
-@BeforeAll
+    @BeforeAll
     public static void Listener() {
-
-      //  Configuration.reportsFolder = "target/allure-results";
-
         String listenerName = "AllureSelenide";
         if (!(SelenideLogger.hasListener(listenerName)))
             SelenideLogger.addListener(listenerName, new AllureSelenide()
